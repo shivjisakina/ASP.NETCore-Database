@@ -33,7 +33,9 @@ namespace ForgingAhead.Controllers
 
     public IActionResult Index()
     {
-      return View();
+      //Get All Quests Here
+      var model = _context.Quests.ToList();
+      return View(model);
     }
   }
 }
