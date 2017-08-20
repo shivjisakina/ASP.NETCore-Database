@@ -43,5 +43,20 @@ namespace ForgingAhead.Controllers
       var model = _context.Quests.FirstOrDefault(e => e.Name == name);
       return View(model);
     }
+    public IActionResult Update(Quest quest)
+    {
+      // add quest update logic here
+      _context.Entry(quest).State = EntityState.Modified;
+      _context.SaveChanges();
+      return RedirectToAction("Index");
+    }
+    public IActionResult Delete(string name)
+    {
+      // delete record from database here
+      var original = _context.Quests.FirstOrDefault(e => e.Name == name);
+      _context.Quests.Remove(original);
+      _context.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }
