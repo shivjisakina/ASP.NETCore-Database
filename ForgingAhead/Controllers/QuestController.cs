@@ -37,5 +37,11 @@ namespace ForgingAhead.Controllers
       var model = _context.Quests.ToList();
       return View(model);
     }
+    public IActionResult Details(string name)
+    {
+      //Get matching Quest here
+      var model = _context.Quests.FirstOrDefault(e => e.Name == name);
+      return View(model);
+    }
   }
 }
