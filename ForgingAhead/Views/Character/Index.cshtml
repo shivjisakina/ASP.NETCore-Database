@@ -1,0 +1,17 @@
+
+@model List<ForgingAhead.Models.Quest>
+<h1>
+  Quests
+</h1>
+<p>
+    <a asp-action="Create" asp-Controller="Quest"/>Create new quest</a>
+</p>
+<ul>
+  @foreach(var item in Model)
+  {
+    <li>
+                                         <!-- /Character/Details?Name=Hans sets name route like {} in js -->
+    <a asp-action="Details" asp-Controller="Quest" asp-route-name="@item.Name"/>@item.Name</a>
+    </li>
+  }
+</ul>
